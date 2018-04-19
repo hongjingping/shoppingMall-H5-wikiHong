@@ -18,3 +18,10 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
     <van-button type="primary">主要按钮</van-button>
     ```
   2. 局部引入
+    1. `sudo npm i babel-plugin-import -D`
+    2. 在babelrc中引入["import",{"libraryName": "vant", "style": true}]
+    3. src->main.js
+    ```
+    import {Button} from 'vant'
+    Vue.use(Button)
+    ```
