@@ -4,9 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>smile</title>
+    <style>
+      /* iPhone5 1rem=16px html font-size=16px */
+      .test {
+        width: 20rem; /* iphone5宽度320px */
+        height: 10rem;
+        background-color: bisque;
+        text-align: center;
+      }
+      .hello {
+        color: red;
+        font-size: 1rem;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <div class='test'>
+      <p class='hello'>Hello wikiHong</p>
+    </div>
+    <script>
+      // 获取设备的宽度
+      let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      // 获取dom元素
+      let htmlDom = document.getElementsByTagName('html')[0];
+      // 设置dom元素的style
+      htmlDom.style.fontSize = htmlWidth/20+'px';
+    </script>
   </body>
 </html>

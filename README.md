@@ -25,3 +25,9 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
     import {Button} from 'vant'
     Vue.use(Button)
     ```
+# 移动端适配方案
+1. 固定高度，宽度百分比
+2. Media Query(媒体查询)
+3. flex布局
+  1. rem:是相对长度单位，相对于根元素html的font-size来计算。
+  `index.html`
