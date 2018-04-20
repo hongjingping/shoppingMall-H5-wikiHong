@@ -7,6 +7,12 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 2. `sudo npm i vue-cli -g`
 3. `vue init webpack`
 # 组件--有赞团队vant
+0. 优点
+  1. 国人制造，复合中国网站样式和交互习惯；
+  2. 单元测试超过90%，有些个人的小样式组件是不作单元测试的；
+  3. 支持babel-plugin-import引入，按需加载插件，无需单独引入样式；
+  4. 支持TypeScript，这个是2018年前端最应该学的技术；
+  5. 支持SSR，服务端渲染也是可以使用这个组件库的；
 1. 安装vant`sudo npm i vant -S`或者`sudo npm i vant --save --registry=https://registry.npm.taobao.org`
 2. 引入
   1. 全局引入(不推荐使用)
