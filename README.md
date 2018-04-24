@@ -47,4 +47,4 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # 首页搜索布局
 1. 阿里iconfont: http://www.iconfont.cn/
-2.
+2. 源码: https://github.com/shenghy/SmileVue
