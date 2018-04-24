@@ -2,7 +2,7 @@
 Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 ### 2018.04.16
-# 说明文档 
+# 说明文档
 1. `sudo npm -v`
 2. `sudo npm i vue-cli -g`
 3. `vue init webpack`
@@ -37,3 +37,10 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 3. flex布局
   1. rem:是相对长度单位，相对于根元素html的font-size来计算。
   `index.html`
+# 首页页面
+1. 首页路由的设置
+  1. router中配置name，可以方便使用
+  2. 安装vue VSCodesnippet
+  3. 直接在页面中输入vba,按下enter就可以生成基础页面
+2. 快速建立首页(vue VSCode snippets)
+3. vant布局的方法介绍
