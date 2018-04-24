@@ -44,3 +44,7 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
   3. 直接在页面中输入vba,按下enter就可以生成基础页面
 2. 快速建立首页(vue VSCode snippets)
 3. vant布局的方法介绍
+
+# 首页搜索布局
+1. 阿里iconfont: http://www.iconfont.cn/
+2.
