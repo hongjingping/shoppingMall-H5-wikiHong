@@ -13,6 +13,15 @@
         </van-col>
       </van-row>
     </div>
+    <!-- swiper area -->
+    <div class="swiper-area">
+      <van-swipe :autoplay="1000">
+        <van-swipe-item v-for="(banner, index) in bannerPicArray" :key='index'>
+          <img v-lazy="banner.imageUrl" width="100%"/>
+        </van-swipe-item>
+      </van-swipe>
+    </div>
+    <!-- swiper area -->
   </div>
 </template>
 
@@ -21,7 +30,12 @@ export default {
   data () {
     return {
       msg: 'ShoppingMall',
-      locationIcon: require('../../assets/images/location.png')
+      locationIcon: require('../../assets/images/location.png'),
+      bannerPicArray: [
+        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic001.jpg'},
+        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic002.jpg'},
+        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic003.jpg'}
+      ]
     }
   }
 }
@@ -32,6 +46,7 @@ export default {
     height: 2.2rem;
     background-color: #e5017d;
     line-height: 2.2rem;
+    overflow: hidden;
   }
   .location-icon {
     padding-top: .2rem;
@@ -46,5 +61,10 @@ export default {
     border-bottom: 1px solid #fff !important;
     background-color: #e5017d;
     color: #fff;
+  }
+  .swiper-area {
+    clear: both;
+    max-height: 12rem;
+    overflow: hidden;
   }
 </style>
