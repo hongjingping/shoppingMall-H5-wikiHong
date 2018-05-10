@@ -56,6 +56,7 @@
     <swiper-default></swiper-default>
     <swiper-default1></swiper-default1>
     <swiper-default2></swiper-default2>
+    <swiper-test></swiper-test>
   </div>
 </template>
 
@@ -66,6 +67,7 @@ import {swiper, swiperSlide} from 'vue-awesome-swiper'
 import swiperDefault from '../swiper/swiperDefault.vue'
 import swiperDefault1 from '../swiper/swiperDefault1.vue'
 import swiperDefault2 from '../swiper/swiperDefault2.vue'
+import swiperTest from '../swiper/swiperText.vue'
 export default {
   data () {
     return {
@@ -85,7 +87,8 @@ export default {
     swiperSlide,
     swiperDefault,
     swiperDefault1,
-    swiperDefault2
+    swiperDefault2,
+    swiperTest
   },
   created () {
     axios({
