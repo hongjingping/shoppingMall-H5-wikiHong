@@ -64,3 +64,5 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 # mock数据使用和flex布局
 
 # vue-awesome-swipper
+1. https://www.npmjs.com/package/vue-awesome-swiper
+2.

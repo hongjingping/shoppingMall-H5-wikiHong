@@ -53,6 +53,9 @@
       </div>
     </div>
     <!-- Recommend goods area -->
+    <swiper-default></swiper-default>
+    <swiper-default1></swiper-default1>
+    <swiper-default2></swiper-default2>
   </div>
 </template>
 
@@ -60,6 +63,9 @@
 import axios from 'axios'
 import 'swiper/dist/css/swiper.css'
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
+import swiperDefault from '../swiper/swiperDefault.vue'
+import swiperDefault1 from '../swiper/swiperDefault1.vue'
+import swiperDefault2 from '../swiper/swiperDefault2.vue'
 export default {
   data () {
     return {
@@ -76,7 +82,10 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    swiperDefault,
+    swiperDefault1,
+    swiperDefault2
   },
   created () {
     axios({
