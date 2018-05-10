@@ -61,3 +61,5 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 2. 按照axios
   1. sudo npm i axios --save
   2.
+# mock数据使用和flex布局
+

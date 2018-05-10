@@ -17,11 +17,24 @@
     <div class="swiper-area">
       <van-swipe :autoplay="1000">
         <van-swipe-item v-for="(banner, index) in bannerPicArray" :key='index'>
-          <img v-lazy="banner.imageUrl" width="100%"/>
+          <img v-lazy="banner.image" width="100%"/>
         </van-swipe-item>
       </van-swipe>
     </div>
     <!-- swiper area -->
+    <!-- type bar -->
+    <div class="type-bar">
+      <div v-for="(cate, index) in category" :key="index">
+        <img v-lazy="cate.image" width="90%">
+        <span>{{ cate.mallCategoryName }}</span>
+      </div>
+    </div>
+    <!-- type bar -->
+    <!-- adBanner area-->
+    <div>
+      <img v-lazy="adBanner" width="100%">
+    </div>
+    <!-- adBanner area-->
   </div>
 </template>
 
@@ -32,11 +45,9 @@ export default {
     return {
       msg: 'ShoppingMall',
       locationIcon: require('../../assets/images/location.png'),
-      bannerPicArray: [
-        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic001.jpg'},
-        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic002.jpg'},
-        {imageUrl: 'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic003.jpg'}
-      ]
+      bannerPicArray: [],
+      category: [],
+      adBanner: ''
     }
   },
   created () {
@@ -44,7 +55,12 @@ export default {
       url: 'https://www.easy-mock.com/mock/5af3e5ed7098da01bd921f15/smileVue/index',
       method: 'get'
     }).then((res) => {
-      console.log(res)
+      if (res.status === 200) {
+        console.log(res)
+        this.category = res.data.data.category
+        this.adBanner = res.data.data.advertesPicture.PICTURE_ADDRESS
+        this.bannerPicArray = res.data.data.slides
+      }
     }).catch((err) => {
       console.log(err)
     })
@@ -77,5 +93,19 @@ export default {
     clear: both;
     max-height: 12rem;
     overflow: hidden;
+  }
+  .type-bar {
+    background-color: #fff;
+    margin: 0 .3rem .3rem .3rem;
+    border-radius: .3rem;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .type-bar div {
+    padding: .3rem;
+    font-size: 12px;
+    text-align: center;
   }
 </style>
