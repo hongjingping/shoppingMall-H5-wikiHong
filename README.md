@@ -51,3 +51,13 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # 首页轮播图
 
+# easyMock和axios学习
+1. https://www.easy-mock.com
+  1. 注册
+  2. 点击右下角的'+'
+  3. 创建好之后点击进去，将json数据复制上去
+  4. 设置请求方式等
+  5. 复制url地址即可
+2. 按照axios
+  1. sudo npm i axios --save
+  2.
