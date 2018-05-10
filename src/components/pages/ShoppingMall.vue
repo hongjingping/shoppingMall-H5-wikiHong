@@ -35,11 +35,31 @@
       <img v-lazy="adBanner" width="100%">
     </div>
     <!-- adBanner area-->
+    <!-- Recommend goods area -->
+    <div class="recommend-area">
+      <div class="recommend-title">
+        商品推荐
+      </div>
+      <div class="recommend-body">
+        <swiper :options="swiperOption">
+          <swiperSlide v-for="(item, index) in recommendGoods" :key="index">
+            <div class="recommend-item">
+              <img :src="item.image" width="80%">
+              <div>{{ item.goodsName }}</div>
+              <div>￥{{ item.price}}(￥{{ item.mallPrice}})</div>
+            </div>
+          </swiperSlide>
+        </swiper>
+      </div>
+    </div>
+    <!-- Recommend goods area -->
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import 'swiper/dist/css/swiper.css'
+import {swiper, swiperSlide} from 'vue-awesome-swiper'
 export default {
   data () {
     return {
@@ -47,8 +67,16 @@ export default {
       locationIcon: require('../../assets/images/location.png'),
       bannerPicArray: [],
       category: [],
-      adBanner: ''
+      adBanner: '',
+      recommendGoods: [],
+      swiperOption: {
+        slidesPerView: 3
+      }
     }
+  },
+  components: {
+    swiper,
+    swiperSlide
   },
   created () {
     axios({
@@ -60,6 +88,7 @@ export default {
         this.category = res.data.data.category
         this.adBanner = res.data.data.advertesPicture.PICTURE_ADDRESS
         this.bannerPicArray = res.data.data.slides
+        this.recommendGoods = res.data.data.recommend
       }
     }).catch((err) => {
       console.log(err)
@@ -105,6 +134,25 @@ export default {
   }
   .type-bar div {
     padding: .3rem;
+    font-size: 12px;
+    text-align: center;
+  }
+  .recommend-area {
+    background-color: #fff;
+    margin-top: .3rem;
+  }
+  .recommend-title {
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    padding: .2rem;
+    color: #e5017d;
+  }
+  .recommend-body {
+    border-bottom: 1px solid #eee;
+  }
+  .recommend-item {
+    width: 99%;
+    border-right: 1px solid #eee;
     font-size: 12px;
     text-align: center;
   }

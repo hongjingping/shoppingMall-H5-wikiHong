@@ -63,3 +63,4 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
   2.
 # mock数据使用和flex布局
 
+# vue-awesome-swipper
