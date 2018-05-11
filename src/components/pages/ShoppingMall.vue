@@ -53,10 +53,31 @@
       </div>
     </div>
     <!-- Recommend goods area -->
-    <swiper-default></swiper-default>
-    <swiper-default1></swiper-default1>
-    <swiper-default2></swiper-default2>
-    <swiper-test></swiper-test>
+    <!-- floor area -->
+    <div class="floor">
+      <div class="recommend-title">
+        热销商品
+      </div>
+      <div class="floor-anomaly">
+        <div class="floor-one">
+          <img :src="floor1_0.image" width="100%">
+        </div>
+        <div>
+          <div class="floor-two">
+            <img :src="floor1_2.image" width="100%">
+          </div>
+          <div>
+            <img :src="floor1_3.image" width="100%">
+          </div>
+        </div>
+      </div>
+      <div class="floor-rule">
+        <div v-for="(item, index) in floor1.slice(3)" :key="index">
+          <img :src="item.image" width="100%"/>
+        </div>
+      </div>
+    </div>
+    <!-- floor area -->
   </div>
 </template>
 
@@ -64,10 +85,6 @@
 import axios from 'axios'
 import 'swiper/dist/css/swiper.css'
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
-import swiperDefault from '../swiper/swiperDefault.vue'
-import swiperDefault1 from '../swiper/swiperDefault1.vue'
-import swiperDefault2 from '../swiper/swiperDefault2.vue'
-import swiperTest from '../swiper/swiperText.vue'
 export default {
   data () {
     return {
@@ -79,16 +96,17 @@ export default {
       recommendGoods: [],
       swiperOption: {
         slidesPerView: 3
-      }
+      },
+      floor1: [],
+      floor1_0: {},
+      floor1_2: {},
+      floor1_3: {},
+      floor1_4: {}
     }
   },
   components: {
     swiper,
-    swiperSlide,
-    swiperDefault,
-    swiperDefault1,
-    swiperDefault2,
-    swiperTest
+    swiperSlide
   },
   created () {
     axios({
@@ -101,6 +119,11 @@ export default {
         this.adBanner = res.data.data.advertesPicture.PICTURE_ADDRESS
         this.bannerPicArray = res.data.data.slides
         this.recommendGoods = res.data.data.recommend
+        this.floor1 = res.data.data.floor1
+        this.floor1_0 = this.floor1[0]
+        this.floor1_2 = this.floor1[1]
+        this.floor1_3 = this.floor1[2]
+        this.floor1_4 = this.floor1[3]
       }
     }).catch((err) => {
       console.log(err)
@@ -167,5 +190,40 @@ export default {
     border-right: 1px solid #eee;
     font-size: 12px;
     text-align: center;
+  }
+  .floor {
+    background-color: #fff;
+  }
+  .floor-anomaly {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  .floor-anomaly div {
+    width: 10rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  .floor-one {
+    border-right: 1px solid #ddd;
+  }
+  .floor-two {
+    border-bottom: 1px solid #ddd;
+  }
+  .floor-rule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+  }
+  .floor-rule div {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 10rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .floor-rule div:nth-child(odd) {
+    border-right: 1px solid #ddd;
   }
 </style>

@@ -65,4 +65,5 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # vue-awesome-swipper
 1. https://www.npmjs.com/package/vue-awesome-swiper
-2.
+
+# 楼层组件和watch的使用
