@@ -67,3 +67,4 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 1. https://www.npmjs.com/package/vue-awesome-swiper
 
 # 楼层组件和watch的使用
+1. watch: 当数据发生变化的时候，可以直接监视
