@@ -68,3 +68,6 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # 楼层组件和watch的使用
 1. watch: 当数据发生变化的时候，可以直接监视
+
+# 完善楼层组件
+1.

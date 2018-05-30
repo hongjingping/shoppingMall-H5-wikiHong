@@ -54,7 +54,9 @@
     </div>
     <!-- Recommend goods area -->
     <!-- floor area -->
-    <floor-component :floorData="floor1"></floor-component>
+    <floor-component :floorData="floor1" :floorTitle = 'floorName.floor1'></floor-component>
+    <floor-component :floorData="floor2" :floorTitle = 'floorName.floor2'></floor-component>
+    <floor-component :floorData="floor3" :floorTitle = 'floorName.floor3'></floor-component>
     <!-- floor area -->
   </div>
 </template>
@@ -76,7 +78,10 @@ export default {
       swiperOption: {
         slidesPerView: 3
       },
-      floor1: []
+      floor1: [],
+      floor2: [],
+      floor3: [],
+      floorName: {}
     }
   },
   components: {
@@ -86,7 +91,8 @@ export default {
   },
   created () {
     axios({
-      url: 'https://www.easy-mock.com/mock/5af3e5ed7098da01bd921f15/smileVue/index',
+      // url: 'https://www.easy-mock.com/mock/5af3e5ed7098da01bd921f15/smileVue/index',
+      url: 'https://www.easy-mock.com/mock/5ae2eeb23fbbf24d8cd7f0b6/SmileVue/index',
       method: 'get'
     }).then((res) => {
       if (res.status === 200) {
@@ -96,6 +102,9 @@ export default {
         this.bannerPicArray = res.data.data.slides
         this.recommendGoods = res.data.data.recommend
         this.floor1 = res.data.data.floor1
+        this.floor2 = res.data.data.floor2
+        this.floor3 = res.data.data.floor3
+        this.floorName = res.data.data.floorName
       }
     }).catch((err) => {
       console.log(err)
