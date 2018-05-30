@@ -76,3 +76,6 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 1. 代码优化方法
 
 
+# 热卖组件的制作和van-list的使用
+
+
