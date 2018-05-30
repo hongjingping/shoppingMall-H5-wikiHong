@@ -71,3 +71,8 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # 完善楼层组件
 1.
+
+# 项目中的filter使用
+1. 代码优化方法
+
+
