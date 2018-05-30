@@ -78,4 +78,10 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 
 # 热卖组件的制作和van-list的使用
 
-
+# 第五章-后端开发
+## 服务接口API配置文件制作
+## 安装koa2到项目中来
+## 安装MongoDB数据库
+## koa2中用Mongoose链接数
+## koa2中用Mongoose链接数2
+## Mongose的Schema建模介绍
