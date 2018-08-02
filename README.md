@@ -124,3 +124,33 @@ app.listen(3000, () => {
 1. schema:用来定义表的模板，实现和mongodb数据库的映射
 2. model:具备表操作能力的一种集合，是mongoose的核心能力
 3. entity: 类似记录，由model创建的实体
+4. Mongose数据类型
+  1. String
+  2. Number
+  3. Date
+  4. Boolean
+  5. Buffer NodeJS buffer类型
+  6. ObjectID 主键，一种特殊且非常重要的类型
+  7. Mixed 混合类型
+  8. Array 集合类型
+5. 创建schema
+```
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+// mongoose原生的主键
+let ObjectId = Schema.Types.ObjectId
+
+// 创建UserSchema
+const userSchema = new Schema({
+  UserId: { type: ObjectId },
+  userName: { unique: true, type: String},
+  password: String,
+  createAt: {type: Date, default: Date.now()},
+  lastLoginAt: {type: Date, default: Date.now()},
+}) // 加盐
+
+// 发布模型
+mongoose.model('User', userSchema)
+
+```
