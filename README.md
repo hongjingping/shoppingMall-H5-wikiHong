@@ -104,8 +104,21 @@ app.listen(3000, () => {
 1. Mongoose是一个开源的封装好的实现
 2. Node和MongoDB数据通讯的数据建模库
 3. `sudo npm i --save mongoose`
-4.
+4. `mongod -version`查看是否安装成功mongodb
+5. `mongod`执行后，发现又一个`/data/db not found.`
+  1. 解决办法一`mongod --dbpath /Users/jingpinghong/data`
+6. `mongod`执行后，发现又一个`Address already in use`
+  1. 解决方法一`ps aux | grep mongod`查看端口占用情况
+  2. 杀掉进程：`kill -9 端口号`
+7. 执行`mongod --dbpath /Users/jingpinghong/data`即可
+
+8. 安装robomongo.org，用于监视mongodb数据库
+  1. `https://robomongo.org/download`下载安装即可
+  2. 启动后，点击create然后save
+
 ## koa2中用Mongoose链接数
+1. Mongoose是一个开源的封装好的实现 `sudo npm install --save mongoose`
+2. node和mongodb数据通讯的数据建模库
 ## koa2中用Mongoose链接数2
 ## Mongose的Schema建模介绍
 1. schema:用来定义表的模板，实现和mongodb数据库的映射
