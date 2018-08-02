@@ -81,7 +81,33 @@ Vue+Vuex+Router+Node+Koa2+Mongoose+MongoDB
 # 第五章-后端开发
 ## 服务接口API配置文件制作
 ## 安装koa2到项目中来
+0. 新建service目录，进入到service目录
+1. `sudo npm init -y`项目初始化
+2. `sudo npm install koa --save`下载koa
+3. 新建index.js
+```
+const Koa = require('koa')
+const app = new Koa()
+
+app.use(async(ctx) => {
+  ctx.body = '<h1>Hello wikiHong~05.29</h1>'
+})
+
+app.listen(3000, () => {
+  console.log('[server] starting at port 3000')
+})
+```
+4. `node index.js`
+5. 在浏览器启用http://localhost:3000/
+6. 此时说明koa已经安装成功
 ## 安装MongoDB数据库
+1. Mongoose是一个开源的封装好的实现
+2. Node和MongoDB数据通讯的数据建模库
+3. `sudo npm i --save mongoose`
+4.
 ## koa2中用Mongoose链接数
 ## koa2中用Mongoose链接数2
 ## Mongose的Schema建模介绍
+1. schema:用来定义表的模板，实现和mongodb数据库的映射
+2. model:具备表操作能力的一种集合，是mongoose的核心能力
+3. entity: 类似记录，由model创建的实体
