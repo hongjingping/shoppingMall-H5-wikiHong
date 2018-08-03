@@ -1,5 +1,14 @@
 const mongoose = require('mongoose')
-const db = "mongodb://localhost/smile-db"
+const db = "mongodb://localhost/smile-vue"
+const glob = require('glob')
+
+// 将相对路径转为绝对路径
+const {resolve} = require('path')
+
+// 导出接口
+exports.initSchemas = () => {
+  glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require);
+}
 
 exports.connect = () => {
   // 链接数据库
