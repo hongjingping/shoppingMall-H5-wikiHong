@@ -169,6 +169,7 @@ mongoose.model('User', userSchema)
 ## 注册页面前端视图
 ## Koa-router实现用户操作模块
 ## 打通前后端通讯
+1. 解决跨域 `sudo npm install --save koa2-cors`
 ## 用户注册的数据库操作
 ## 用户注册的防提交编写
 ## 用户注册的前端数据验证
