@@ -171,6 +171,7 @@ mongoose.model('User', userSchema)
 ## 打通前后端通讯
 1. 解决跨域 `sudo npm install --save koa2-cors`
 ## 用户注册的数据库操作
+1.
 ## 用户注册的防提交编写
 ## 用户注册的前端数据验证
 ## 登录界面制作和路由配置

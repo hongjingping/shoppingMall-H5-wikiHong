@@ -32,6 +32,7 @@
 <script>
 import axios from 'axios'
 import url from '@/serverAPI.config.js'
+import { Toast } from 'vant'
 export default {
   data () {
     return {
@@ -48,11 +49,17 @@ export default {
         url: url.registerUser,
         method: 'post',
         data: {
-          username: this.username,
+          userName: this.username,
           password: this.password
         }
       }).then((response) => {
         console.log(response)
+        if (response.data.code === 200) {
+          Toast.success(response.data.message)
+        } else {
+          console.log(response.data.message)
+          Toast.fail('注册失败')
+        }
       }).catch((err) => {
         console.log(err)
       })
