@@ -57,7 +57,7 @@ export default {
       this.checkForm() && this.axiosRegisterUser()
     },
     axiosRegisterUser () {
-      this.openLoading = true;
+      this.openLoading = true
       axios({
         url: url.registerUser,
         method: 'post',
@@ -72,27 +72,27 @@ export default {
           this.$router.push('/') // 注册成功后跳转
         } else {
           console.log(response.data.message)
-          this.openLoading = false;
+          this.openLoading = false
           Toast.fail('注册失败')
         }
       }).catch((err) => {
         console.log(err)
         Toast.fail('注册失败')
-        this.openLoading = false;
+        this.openLoading = false
       })
     },
     //****** 前端表单验证方法
     checkForm () {
-      let isOk = true;
+      let isOk = true
       if (this.username.length < 5) {
         this.usernameErrorMsg = '用户名不能少于5位'
-        isOk = false;
+        isOk = false
       } else {
         this.usernameErrorMsg = ''
       }
       if (this.password.length < 6) {
         this.passwordErrorMsg = '密码不能少于6位'
-        isOk = false;
+        isOk = false
       } else {
         this.passwordErrorMsg = ''
       }

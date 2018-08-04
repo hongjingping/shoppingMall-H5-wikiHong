@@ -43,7 +43,7 @@ export default {
       password: '',
       openLoading: false, // 是否开启用户注册的loading状态
       usernameErrorMsg: '', // 当用户名出错的时候才提示
-      passwordErrorMsg: '', // 当密码出错的时候才提示
+      passwordErrorMsg: '' // 当密码出错的时候才提示
     }
   },
   methods: {
@@ -59,21 +59,21 @@ export default {
     axiosLoginUser () {
       this.openLoading = true;
       axios({
-        url: url.registerUser,
+        url: url.login,
         method: 'post',
         data: {
           userName: this.username,
           password: this.password
         }
       }).then((response) => {
-
+        console.log(response)
       }).catch((err) => {
-
+        console.log(err)
       })
     },
-    //****** 前端表单验证方法
+    // 前端表单验证方法
     checkForm () {
-      let isOk = true;
+      let isOk = true
       if (this.username.length < 5) {
         this.usernameErrorMsg = '用户名不能少于5位'
         isOk = false;
