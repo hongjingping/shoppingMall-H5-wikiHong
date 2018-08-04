@@ -37,7 +37,8 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      openLoading: false, // 是否开启用户注册的loading状态
     }
   },
   methods: {
@@ -45,6 +46,7 @@ export default {
       this.$router.go(-1)
     },
     axiosRegisterUser () {
+      this.openLoading = true;
       axios({
         url: url.registerUser,
         method: 'post',
@@ -56,12 +58,16 @@ export default {
         console.log(response)
         if (response.data.code === 200) {
           Toast.success(response.data.message)
+          this.$router.push('/')
         } else {
           console.log(response.data.message)
+          this.openLoading = false;
           Toast.fail('注册失败')
         }
       }).catch((err) => {
         console.log(err)
+        Toast.fail('注册失败')
+        this.openLoading = false;
       })
     }
   }
