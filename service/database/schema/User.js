@@ -15,6 +15,8 @@ const userSchema = new Schema({
   password: { type:String },
   createAt: {type: Date, default: Date.now()},
   lastLoginAt: {type: Date, default: Date.now()},
+}, {
+  collection: 'user'
 }) // 加盐
 userSchema.pre('save', function (next) {
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
