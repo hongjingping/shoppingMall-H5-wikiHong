@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 首页 -->
     <div class="search-bar">
       <van-row class="test-row">
         <van-col span="3">

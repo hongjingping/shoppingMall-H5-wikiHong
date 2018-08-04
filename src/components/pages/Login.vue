@@ -1,8 +1,8 @@
 <template>
   <div>
-      <!-- 注册页面 -->
+      <!-- 登录页面 -->
       <van-nav-bar
-      title="用户注册"
+      title="用户登录"
       left-text="返回"
       left-arrow
       @click-left="goBack"
@@ -26,7 +26,7 @@
           :error-message="passwordErrorMsg"
        />
        <div class="register-button">
-          <van-button type="primary" size="large" @click="registerAction">马上注册</van-button>
+          <van-button type="primary" size="large" @click="loginAction">马上登录</van-button>
        </div>
       </div>
   </div>
@@ -50,13 +50,13 @@ export default {
     goBack () {
       this.$router.go(-1)
     },
-    registerAction () {
+    loginAction () {
       // if (this.checkForm()) {
       //   this.axiosRegisterUser()
       // } // 优化成下面的一行搞定
-      this.checkForm() && this.axiosRegisterUser()
+      this.checkForm() && this.axiosLoginUser()
     },
-    axiosRegisterUser () {
+    axiosLoginUser () {
       this.openLoading = true;
       axios({
         url: url.registerUser,
@@ -66,19 +66,9 @@ export default {
           password: this.password
         }
       }).then((response) => {
-        console.log(response)
-        if (response.data.code === 200) {
-          Toast.success(response.data.message)
-          this.$router.push('/') // 注册成功后跳转
-        } else {
-          console.log(response.data.message)
-          this.openLoading = false;
-          Toast.fail('注册失败')
-        }
+
       }).catch((err) => {
-        console.log(err)
-        Toast.fail('注册失败')
-        this.openLoading = false;
+
       })
     },
     //****** 前端表单验证方法
