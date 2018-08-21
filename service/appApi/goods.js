@@ -53,8 +53,8 @@ router.get('/insertAllCategorySub', async(ctx) => {
       const CategorySub = mongoose.model('CategorySub')
       data.RECORDS.map((value, index) => {
         // console.log(value)
-        let newCategory = new CategorySub(value)
-        newCategory.save()
+        let newCategorySub = new CategorySub(value)
+        newCategorySub.save()
         .then(() => {
           saveCount++
           console.log('插入成功:'+saveCount)
@@ -64,6 +64,18 @@ router.get('/insertAllCategorySub', async(ctx) => {
       })
     })
   ctx.body = '开始导入数据0821......'
+})
+
+// **获取商品详情信息的接口**
+router.post('/getDetailGoodsInfo', async (ctx) => {
+  try {
+    let goodsId = ctx.request.body.goodsId
+    const Goods = mongoose.model('Goods')
+    let result = await Goods.findOne({ID: goodsId}).exec()
+    ctx.body = {code: 200, message: result}
+  } catch (err) {
+    ctx.body = {code: 500, message: err}
+  }
 })
 
 module.exports = router
