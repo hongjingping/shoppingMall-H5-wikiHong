@@ -46,7 +46,7 @@ export default {
       passwordErrorMsg: '' // 当密码出错的时候才提示
     }
   },
-  created(){
+  created () {
     if (localStorage.userInfo) {
       Toast.success('您已经登录~')
       this.$router.push('/')
@@ -63,7 +63,7 @@ export default {
       this.checkForm() && this.axiosLoginUser()
     },
     axiosLoginUser () {
-      this.openLoading = true;
+      this.openLoading = true
       axios({
         url: url.login,
         method: 'post',
@@ -73,7 +73,7 @@ export default {
         }
       }).then((response) => {
         console.log(response)
-        if (response.data.code == 200 && response.data.message ) {
+        if (response.data.code === 200 && response.data.message) {
         // 登录成功之后进行登录状态本地存储
           new Promise((resolve, reject) => {
             localStorage.userInfo = { useName: this.username }
@@ -87,12 +87,12 @@ export default {
           })
         } else {
           Toast.fail('登录失败')
-          this.openLoading = false;
+          this.openLoading = false
         }
       }).catch((err) => {
         console.log(err)
         Toast.fail('登录失败')
-        this.openLoading = false;
+        this.openLoading = false
       })
     },
     // 前端表单验证方法
@@ -100,13 +100,13 @@ export default {
       let isOk = true
       if (this.username.length < 5) {
         this.usernameErrorMsg = '用户名不能少于5位'
-        isOk = false;
+        isOk = false
       } else {
         this.usernameErrorMsg = ''
       }
       if (this.password.length < 6) {
         this.passwordErrorMsg = '密码不能少于6位'
-        isOk = false;
+        isOk = false
       } else {
         this.passwordErrorMsg = ''
       }

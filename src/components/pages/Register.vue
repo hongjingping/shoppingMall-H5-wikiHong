@@ -43,7 +43,7 @@ export default {
       password: '',
       openLoading: false, // 是否开启用户注册的loading状态
       usernameErrorMsg: '', // 当用户名出错的时候才提示
-      passwordErrorMsg: '', // 当密码出错的时候才提示
+      passwordErrorMsg: '' // 当密码出错的时候才提示
     }
   },
   methods: {
@@ -81,7 +81,7 @@ export default {
         this.openLoading = false
       })
     },
-    //****** 前端表单验证方法
+    // 前端表单验证方法
     checkForm () {
       let isOk = true
       if (this.username.length < 5) {
