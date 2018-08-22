@@ -1,6 +1,16 @@
 <template>
   <div>
-    <p>商品详情页</p>
+    <div class="navbar-div">
+      <van-nav-bar
+        title="商品详情"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+      />
+    </div>
+    <div class="topimage-div">
+      <img :src="goodsInfo.IMAGE1" width="100%" alt="">
+    </div>
   </div>
 </template>
 
@@ -10,10 +20,13 @@ import url from '@/serverAPI.config.js'
 export default {
   data () {
     return {
-      goodsId: '775e575ce28a4f89b1dfe2c99eb08ae7'
+      goodsId: '',
+      goodsInfo: {} // 商品详细信息
     }
   },
   created () {
+    this.goodsId = this.$route.query.goodsId
+    console.log(this.goodsId)
     this.getInfo()
   },
   methods: {
@@ -25,10 +38,13 @@ export default {
       })
         .then(res => {
           console.log('res', res)
-          console.log('url', url.getDetailGoodsInfo)
+          this.goodsInfo = res.data.message
         }).catch(err => {
           console.log('err', err)
         })
+    },
+    onClickLeft () {
+      this.$router.go(-1)
     }
   }
 }
