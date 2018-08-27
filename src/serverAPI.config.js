@@ -4,6 +4,9 @@ const URL = {
   getShoppingMallInfo: BASEURL + 'index', // 商城首页所有信息
   registerUser: LOCALURL + 'user/register', // 用户注册接口
   login: LOCALURL + 'user/login', // 用户登录接口
-  getDetailGoodsInfo: LOCALURL + 'goods/getDetailGoodsInfo' // 获取商品详情
+  getDetailGoodsInfo: LOCALURL + 'goods/getDetailGoodsInfo', // 获取商品详情
+  getCategoryList: LOCALURL + 'goods/getCategoryList', // 获取大类数据
+  getCategorySubList: LOCALURL + 'goods/getCategorySubList', // 获取小类数据
+  getGoodsListByCategorySubID: LOCALURL + 'goods/getGoodsListByCategorySubID' // 获取类别获取商品列表
 }
 module.exports = URL
