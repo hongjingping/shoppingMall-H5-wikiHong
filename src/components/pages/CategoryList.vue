@@ -20,6 +20,13 @@
               </van-tab>
             </van-tabs>
           </div>
+          <div id="list-div">
+            <van-list v-model="loading" :finished="finished" @load="onLoad">
+              <div class="list-item" v-for="(item, index) in list" :key="item">
+               {{item}}
+              </div>
+            </van-list>
+          </div>
         </van-col>
       </van-row>
     </div>
@@ -37,6 +44,9 @@
         categoryIndex: 0,
         categorySub: [], //小类类别
         active: 0, // 默认从0个tab激活标签的值
+        loading: false,
+        finished: false, // 上拉加载是否有数据
+        list: [], // 商品数据
       }
     },
     created () {
@@ -45,8 +55,10 @@
     mounted () {
       let winHeight = document.documentElement.clientHeight
       document.getElementById('left-nav').style.height = winHeight - 46 + 'px'
+      document.getElementById('list-div').style.height = winHeight - 90 + 'px'
     },
     methods: {
+      // 获取大类列表
       getCategory () {
         axios({
           url: url.getCategoryList,
@@ -64,10 +76,6 @@
         .catch (err => {
           Toast(err)
         })
-      },
-      clickCategory (index, categoryId) {
-        this.categoryIndex = index;
-        this.getCategorySubByCategoryID(categoryId)
       },
       // 根据大类ID读取小类类别列表
       getCategorySubByCategoryID (categoryId) {
@@ -87,7 +95,23 @@
           console.log(err)
           Toast('服务器错误，获取数据失败')
         })
-      }
+      },
+      clickCategory (index, categoryId) {
+        this.categoryIndex = index;
+        this.getCategorySubByCategoryID(categoryId)
+      },
+      // 上拉加载
+      onLoad () {
+        setTimeout ( () => {
+          for( let i = 0; i < 10; i++) {
+            this.list.push(this.list.length + 1)
+          }
+          this.loading = false
+          if (this.list.length >= 40) {
+            this.finished = true
+          }
+        }, 500)
+      },
     },
 
   }
@@ -106,5 +130,14 @@
 }
 .categoryActive {
   background-color: #FFF;
+}
+.list-item {
+  text-align: center;
+  line-height: 80px;
+  border-bottom: 1px solid #F0F0F0;
+  background-color: #FFF;
+}
+#list-div {
+  overflow: scroll;
 }
 </style>
