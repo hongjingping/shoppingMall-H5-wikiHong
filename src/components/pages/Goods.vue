@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="navbar-div">
+    <p>商品详情</p>
+    <!-- <div class="navbar-div">
       <van-nav-bar
         title="商品详情"
         left-text="返回"
@@ -10,7 +11,7 @@
     </div>
     <div class="topimage-div">
       <img :src="goodsInfo.IMAGE1" width="100%" alt="">
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -20,13 +21,12 @@ import url from '@/serverAPI.config.js'
 export default {
   data () {
     return {
-      goodsId: '',
+      goodsId: '775e575ce28a4f89b1dfe2c99eb08ae7',
       goodsInfo: {} // 商品详细信息
     }
   },
   created () {
-    this.goodsId = this.$route.query.goodsId
-    console.log(this.goodsId)
+    // this.goodsId = this.$route.query.goodsId
     this.getInfo()
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
       })
         .then(res => {
           console.log('res', res)
-          this.goodsInfo = res.data.message
+          // this.goodsInfo = res.data.message
         }).catch(err => {
           console.log('err', err)
         })

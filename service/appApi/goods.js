@@ -72,8 +72,7 @@ router.get('/insertAllCategorySub', async(ctx) => {
 // **获取商品详情信息的接口**
 router.post('/getDetailGoodsInfo', async (ctx) => {
   try {
-    // let goodsId = ctx.request.body.goodsId
-    let goodsId = '775e575ce28a4f89b1dfe2c99eb08ae7'
+    let goodsId = ctx.request.body.goodsId
     const Goods = mongoose.model('Goods')
     let result = await Goods.findOne({ID: goodsId}).exec()
     console.log(result)
