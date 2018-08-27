@@ -15,7 +15,7 @@
     </div>
     <!-- 商品名称 -->
     <div class="goods-name">{{goodsInfo.NAME}}</div>
-    <div class="goods-price">价格:{{goodsInfo.PRESENT_PRICE}}</div>
+    <div class="goods-price">价格: ￥{{goodsInfo.PRESENT_PRICE | moneyFilter}}元</div>
     <div>
       <van-tabs>
         <van-tab title="商品详情">
@@ -27,6 +27,15 @@
         </van-tab>
       </van-tabs>
     </div>
+    <!-- 底栏 -->
+    <div class="goods-bottom">
+      <div>
+        <van-button size="large" type="primary">加入购物车</van-button>
+      </div>
+      <div>
+        <van-button size="large" type="danger">直接购买</van-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,11 +43,17 @@
 import axios from 'axios'
 import url from '@/serverAPI.config.js'
 import {Toast} from 'vant'
+import { toMoney } from '@/filter/moneyFilter.js'
 export default {
   data () {
     return {
       goodsId: '',
       goodsInfo: {} // 商品详细信息
+    }
+  },
+  filters: {
+    moneyFilter (money) {
+      return toMoney(money)
     }
   },
   created () {
@@ -81,5 +96,18 @@ export default {
 }
 .detail{
   font-size: 0px;
+}
+.goods-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  width: 100%;
+  display: flex;
+  flex-flow: nowrap;
+  flex-direction: row;
+}
+.goods-bottom > div {
+  flex: 1;
 }
 </style>
