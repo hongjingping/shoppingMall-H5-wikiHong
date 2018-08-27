@@ -21,8 +21,8 @@ import url from '@/serverAPI.config.js'
 export default {
   data () {
     return {
-      goodsId: '775e575ce28a4f89b1dfe2c99eb08ae7',
-      goodsInfo: {} // 商品详细信息
+      goodsId: '775e575ce28a4f89b1dfe2c99eb08ae7'
+      // goodsInfo: {} // 商品详细信息
     }
   },
   created () {
@@ -33,7 +33,7 @@ export default {
     getInfo () {
       axios({
         url: url.getDetailGoodsInfo,
-        methods: 'post',
+        method: 'post',
         data: {goodsId: this.goodsId}
       })
         .then(res => {
