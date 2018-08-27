@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 导航 -->
     <div class="navbar-div">
       <van-nav-bar
         title="商品详情"
@@ -8,8 +9,23 @@
         @click-left="onClickLeft"
       />
     </div>
+    <!-- 详情头图 -->
     <div class="topimage-div">
       <img :src="goodsInfo.IMAGE1" width="100%" alt="">
+    </div>
+    <!-- 商品名称 -->
+    <div class="goods-name">{{goodsInfo.NAME}}</div>
+    <div class="goods-price">价格:{{goodsInfo.PRESENT_PRICE}}</div>
+    <div>
+      <van-tabs>
+        <van-tab title="商品详情">
+          <div class="detail" v-html="goodsInfo.DETAIL">
+          </div>
+        </van-tab>
+        <van-tab title="评论">
+
+        </van-tab>
+      </van-tabs>
     </div>
   </div>
 </template>
@@ -17,6 +33,7 @@
 <script>
 import axios from 'axios'
 import url from '@/serverAPI.config.js'
+import {Toast} from 'vant'
 export default {
   data () {
     return {
@@ -37,8 +54,13 @@ export default {
         data: {goodsId: this.goodsId}
       })
         .then(res => {
-          console.log('res', res)
-          this.goodsInfo = res.data.message
+          let data = res.data
+          if (data.code === 200 && data.message) {
+            this.goodsInfo = data.message
+          } else {
+            Toast('服务器数据获取失败')
+          }
+          console.log('goodsInfo', this.goodsInfo)
         }).catch(err => {
           console.log('err', err)
         })
@@ -51,5 +73,13 @@ export default {
 </script>
 
 <style scoped>
-
+.goods-name {
+  background-color: #FFF;
+}
+.goods-price{
+  background-color: #FFF;
+}
+.detail{
+  font-size: 0px;
+}
 </style>
