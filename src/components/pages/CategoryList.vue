@@ -23,7 +23,7 @@
           <div id="list-div">
             <van-pull-refresh v-model="isRefresh" @refresh="onRefresh">
               <van-list v-model="loading" :finished="finished" @load="onLoad">
-                <div class="list-item" v-for="(item, index) in goodList" :key="index">
+                <div class="list-item" @click="goGoodsInfo(item.ID)" v-for="(item, index) in goodList" :key="index">
                   <div class="list-item-img">
                     <img
                     :src="item.IMAGE1"
@@ -34,7 +34,7 @@
                   <div class="list-item-text">
                     <div>
                       {{ item.NAME }}
-                      {{ item.ORI_PRICE }}
+                      ￥{{ item.ORI_PRICE | moneyFilter }}元
                     </div>
                   </div>
                 </div>
@@ -51,6 +51,7 @@
 import axios from 'axios'
 import url from '@/serverAPI.config.js'
 import {Toast} from 'vant'
+import { toMoney } from '@/filter/moneyFilter.js'
 export default {
   data() {
     return {
@@ -66,6 +67,11 @@ export default {
       categorySubId: '', // 商品子类ID
       isRefresh: false, // 是否下拉刷新
       errorImg: 'this.src="'+ require('@/assets/images/errorimg.png')+'"'
+    }
+  },
+  filters: {
+    moneyFilter (money) {
+      return toMoney(money)
     }
   },
   created () {
@@ -182,9 +188,13 @@ export default {
       this.finished = false
       this.page = 1
       this.onLoad()
+    },
+    // 跳转到商品详情页
+    goGoodsInfo (id) {
+      this.$router.push({name: 'Goods', params: {goodsId: id}}) // name和params组合
+      // this.$router.push({path: '/goods', query: {goodsId: id}}) // path和query组合
     }
   },
-
 }
 </script>
 
