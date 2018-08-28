@@ -16,10 +16,20 @@
   export default {
     data() {
       return {
-        active: 0
+        active: 0,
+        nowPath: '', // 当前路径
       }
     },
+    updated () {
+      this.changeTabbarActive()
+    },
     methods: {
+      changeTabbarActive () {
+        this.nowPath = this.$route.nowPath
+        if (this.nowPath === '/cart') {
+          this.active = 2
+        }
+      },
       changeTabbar(active) {
         console.log(active)
         switch (active) {

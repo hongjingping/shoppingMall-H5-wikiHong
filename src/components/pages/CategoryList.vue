@@ -79,8 +79,8 @@ export default {
   },
   mounted () {
     let winHeight = document.documentElement.clientHeight
-    document.getElementById('left-nav').style.height = winHeight - 46 + 'px'
-    document.getElementById('list-div').style.height = winHeight - 90 + 'px'
+    document.getElementById('left-nav').style.height = winHeight - 46 - 50 + 'px'
+    document.getElementById('list-div').style.height = winHeight - 90 - 50 + 'px'
   },
   methods: {
     // 获取大类列表
