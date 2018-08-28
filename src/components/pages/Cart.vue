@@ -20,13 +20,28 @@
             <van-stepper v-model="item.count"/>
           </div>
         </div>
-        <div class="wikiHong-goods-price">￥{{item.price}}元</div>
+        <div class="wikiHong-goods-price">
+          <div>
+            ￥{{item.price | moneyFilter}}
+          </div>
+          <div>
+            x{{item.count}}
+          </div>
+          <div class="allPrice">
+            ￥{{ item.price * item.count | moneyFilter}}
+          </div>
+        </div>
       </div>
+    </div>
+    <!-- 计算总金额 -->
+    <div class="totalMoney">
+      商品总价: ￥{{ totalMoney | moneyFilter}}
     </div>
   </div>
 </template>
 
 <script>
+  import { toMoney } from '@/filter/moneyFilter.js'
   export default {
     // vdata生成
     data() {
@@ -35,8 +50,23 @@
         isEmpty: false
       }
     },
+    filters: {
+      moneyFilter (money) {
+        return toMoney(money)
+      }
+    },
     created() {
       this.getCartInfo()
+    },
+    computed: {
+      totalMoney () {
+        let allMoney = 0
+        this.cartInfo.forEach((item, index) => {
+          allMoney += item.price * item.count
+        })
+        localStorage.cartInfo = JSON.stringify(this.cartInfo)
+        return allMoney
+      }
     },
     // vme生成
     methods: {
@@ -92,5 +122,13 @@
 }
 .wikiHong-control {
   padding-top: 10px;
+}
+.allPrice {
+  color: red;
+}
+.totalMoney {
+  text-align: right;
+  background-color: #FFF;
+  border-bottom: 1px solid #e4e7e4;
 }
 </style>
