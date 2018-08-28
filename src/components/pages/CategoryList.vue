@@ -25,7 +25,11 @@
               <van-list v-model="loading" :finished="finished" @load="onLoad">
                 <div class="list-item" v-for="(item, index) in goodList" :key="index">
                   <div class="list-item-img">
-                    <img :src="item.IMAGE1" width="100%" alt="">
+                    <img
+                    :src="item.IMAGE1"
+                    width="100%"
+                    :onerror="errorImg"
+                    />
                   </div>
                   <div class="list-item-text">
                     <div>
@@ -61,6 +65,7 @@ export default {
       goodList: [], // 商品列表信息
       categorySubId: '', // 商品子类ID
       isRefresh: false, // 是否下拉刷新
+      errorImg: 'this.src="'+ require('@/assets/images/errorimg.png')+'"'
     }
   },
   created () {
