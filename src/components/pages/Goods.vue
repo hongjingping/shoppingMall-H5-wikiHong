@@ -90,15 +90,17 @@ export default {
       // 购物车中是否已经存在本商品,find()查找么有的话返回undefined，有的话返回第一条
       let isHaveGoods = cartInfo.find( cart => cart.goodsId == this.goodsId )
       console.log(isHaveGoods)
+      console.log('this.goodsInfo:', this.goodsInfo)
       if (!isHaveGoods) {
         let newGoodsInfo = {
           goodsId: this.goodsInfo.ID,
-          Name: this.goodsInfo.Name,
+          name: this.goodsInfo.NAME,
           price: this.goodsInfo.PRESENT_PRICE,
           image: this.goodsInfo.IMAGE1,
           count: 1
         }
         cartInfo.push(newGoodsInfo)
+        console.log('cartInfo:', cartInfo)
         localStorage.cartInfo = JSON.stringify(cartInfo)
         Toast.success('添加成功')
       } else {
