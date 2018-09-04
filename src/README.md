@@ -1,3 +1,9 @@
+### 2018.04.16
+# 说明文档
+1. `sudo npm -v`
+2. `sudo npm i vue-cli -g`
+3. `vue init webpack`
+
 # 组件--有赞团队vant
 0. 优点
   1. 国人制造，复合中国网站样式和交互习惯；
