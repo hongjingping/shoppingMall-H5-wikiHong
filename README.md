@@ -1,4 +1,4 @@
-# Vue-Vuex-Router-Node-Koa2-Mongoose-MongoDB
+# 购物商城H5-萍宝贝
 1. 前端: vue 、vuex、vue-router
 2. 服务： koa2 、node、 Mongoose、MongoDB
 
